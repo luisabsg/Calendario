@@ -1,0 +1,210 @@
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+html,
+body {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Montserrat', 'Arial', sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  background-color: #fff;
+  color: #111;
+}
+h1 {
+  margin: 2.5rem 0 1.5rem 0;
+}
+a {
+  text-decoration: none;
+  color: #111;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+a:hover {
+  color: #f04;
+}
+button {
+  font: inherit;
+  font-size: 1.4rem;
+  font-weight: normal;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+button.btn-main {
+  color: #fff;
+  background: rgb(0, 81, 255);
+}
+input {
+  font: inherit;
+  font-weight: normal;
+  border: 0.1rem solid rgba(0,0,0,0.1);
+  outline: 0;
+}
+input::placeholder {
+  color: rgba(0,0,0,0.4);
+}
+input.input-main {
+  border: 0.1rem solid rgb(0, 81, 255);;
+}
+input,
+button {
+  height: 2.4rem;
+  padding: 0.5rem 1rem;
+  line-height: 1;
+}
+.input-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.input-group input {
+  width: 80%;
+}
+.input-group button {
+  width: 20%;
+}
+#app {
+  width: 21rem;
+}
+.search {
+  width: 100%;
+  margin: 1rem 0 1rem 0;
+}
+.search input {
+  width: 100%;
+}
+.month {
+  margin: 0;
+  font-size: 1.1rem;
+}
+.month .month-active {
+  width: 12rem;
+}
+.month .month-selector a {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+}
+.month .month-active,
+.month .month-selector {
+  display: inline-block;
+  padding: 0.5rem;
+}
+.weekdays,
+.days {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+.weekdays .day,
+.days .day {
+  width: 3rem;
+  height: 3rem;
+  line-height: 3rem;
+}
+.days {
+  border-top: 0.1rem solid rgba(0,0,0,0.1);
+  border-bottom: 0.1rem solid rgba(0,0,0,0.1);
+}
+.days .day {
+  position: relative;
+  cursor: pointer;
+  transition: color, background 0.2s ease-in-out;
+}
+.days .day:not(.day-empty):not(.day-active):not(.has-matches):hover {
+  color: rgb(0, 81, 255);
+  background: rgba(0,0,0,0.05);
+}
+.days .day.day-active {
+  color: #fff;
+  background:rgb(0, 81, 255);;
+}
+.days .day.day-active.has-events::before {
+  background: #fff;
+}
+.days .day.day-empty {
+  cursor: initial;
+}
+.days .day.has-events::before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0.4rem;
+  left: 0.4rem;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background: #f04;
+}
+.days .day.has-matches:not(.day-active) {
+  background: rgba(255,0,0,0.1);
+  color: #f04;
+}
+.events {
+  border-bottom: 0.1rem solid rgba(0,0,0,0.1);
+}
+.events ul {
+  margin: 0 0 1.5rem 1.5rem;
+  padding: 0;
+}
+.events ul li {
+  list-style-type: disc;
+  word-break: break-word;
+  text-align: left;
+  padding: 0;
+  font-size: 1.2rem;
+}
+.events ul li a {
+  padding: 0 0.5rem;
+  line-height: 2rem;
+  font-weight: bold;
+  transition: 0.3s all ease;
+  opacity: 0;
+}
+.events ul li a:hover {
+  opacity: 1;
+}
+.events p {
+  margin: 0 0 2rem 0;
+}
+.event-add {
+  margin: 2rem 0 4rem 0;
+}
+@media only screen and (max-width: 32rem) {
+  #app {
+    width: 95%;
+  }
+  .calendar {
+    width: 100%;
+  }
+  .calendar .days,
+  .calendar .weekdays {
+    width: 100%;
+  }
+  .calendar .day {
+    font-size: 4.5vw;
+    width: 12.5vw;
+    height: 12.5vw;
+    line-height: 12.5vw;
+  }
+  .calendar .day.has-events::before {
+    top: 1.5vw;
+    left: 1.5vw;
+    width: 1.5vw;
+    height: 1.5vw;
+  }
+}
